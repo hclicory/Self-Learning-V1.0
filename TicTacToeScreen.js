@@ -6,9 +6,6 @@ var board = ["","","","","","","","",""]
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 
-//Reference: https://www.codeitbro.com/how-to-make-tic-tac-toe-game-using-react-native/
-//https://medium.com/@shanerudolfworktive/7-tips-to-develop-react-native-uis-for-all-screen-sizes-7ec5271be25c
-
 export default class TicTacToe extends React.Component {
   constructor(props){
     super(props)

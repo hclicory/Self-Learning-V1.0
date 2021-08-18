@@ -25,11 +25,6 @@ export default class TicTacToe extends React.Component {
       this.setState({isCross:!this.state.isCross})  
       if(this.winGame()!="") {
         Alert.alert(board[number].toUpperCase() + " won The Game")
-        /*Alert.alert(
-            "Result",board[number].toUpperCase() + " Won The Game",
-            [{text: 'OK', onPress: this.resetGame()},]
-        )*/
-        
       }
     }
    

@@ -146,8 +146,8 @@ const styles = StyleSheet.create({
     width: width * 0.3,
     height: width * 0.3,
     backgroundColor:"rgba(52, 52, 52, 0.1)",
-    alignItems: "center", //Hits: For Text align
-    justifyContent: 'center', //Hits: For Text align
+    alignItems: "center",
+    justifyContent: 'center',
   },
   resetButton: {
     margin:"5%",

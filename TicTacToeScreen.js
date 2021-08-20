@@ -126,14 +126,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   row: {
-    flexDirection: "row", //放在一橫行裡
-    flexWrap: "nowrap", //不要自動換行
-    //backgroundColor:"green",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     width: width * 0.94,
     heigth: 'auto',
     alignItems: "center",
     justifyContent: 'center',
-    //margin: "1%",
   },
   headerLabel:{
     color: "rgba(112,80,81,1)",
@@ -146,7 +144,6 @@ const styles = StyleSheet.create({
   button:{
     margin: "1%",
     width: width * 0.3,
-    //aspectRatio: 1, //Not support on web
     height: width * 0.3,
     backgroundColor:"rgba(52, 52, 52, 0.1)",
     alignItems: "center", //Hits: For Text align
@@ -161,9 +158,6 @@ const styles = StyleSheet.create({
     backgroundColor:"bisque",
     alignItems: "center",
     justifyContent: 'center',
-    //borderWidth: 1,
-    //position: 'absolute',
-    //bottom: 0,
   },
   resetLabel:{
     color:"#2B2B52",

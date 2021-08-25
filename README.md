@@ -1,5 +1,5 @@
 # Tac-Tic-Toe-Game
-Run on Expo:
+Run on Expo (:
 [Click Me](https://snack.expo.dev/@hclicory/tic-tac-toe-game)
 
 <div>

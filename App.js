@@ -2,36 +2,49 @@ import React from 'react';
 import { StyleSheet, Text, View, Alert, TouchableOpacity, Dimensions } from 'react-native';
 import Entypo from "@expo/vector-icons/Entypo"
 
-var board = ["","","","","","","","",""]
-const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
+var board = ["","","","","","","","",""];
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export default class TicTacToe extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      isCross:true
+      isStar:true,
     }
   }
   componentDidMount() {
     this.resetGame();
+    this.resetScore();
   }
   drawItem(number){
     if(board[number]=="" && this.winGame()==""){
-      if(this.state.isCross)
+      if(this.state.isStar)
         board[number] = "star"
       else  
         board[number] = "heart"
-      this.setState({isCross:!this.state.isCross})  
+
+      this.setState({isStar:!this.state.isStar})  
+
       if(this.winGame()!="") {
-        Alert.alert(board[number].toUpperCase() + " won The Game")
+        if(this.state.isStar){
+          this.setState({starScore: (this.state.starScore + 1)}) 
+        }else  {
+          this.setState({heartScore: (this.state.heartScore + 1)}) 
+        }
+
+        Alert.alert(board[number].toUpperCase() + " won The Game");        
       }
     }
    
   }
   resetGame = () => {
-    this.setState({isCross:true}) 
+    this.setState({isStar:true}) 
     board=["","","","","","","","",""]
+  }
+  resetScore = () => {
+    this.setState({starScore: 0}) 
+    this.setState({heartScore: 0}) 
   }
   chooseItemColor = (number) => {
     if(board[number]=="star")
@@ -68,6 +81,11 @@ export default class TicTacToe extends React.Component {
           <View style={styles.container}>
               <View style={[styles.row]}>
                     <Text style={styles.headerLabel}>Tic-Tac-Toe</Text>
+              </View> 
+
+              <View style={[styles.row]}>
+                    <Text style={styles.headerLabel}>Star : {this.state.starScore}</Text>
+                    <Text style={styles.headerLabel}>Heart : {this.state.heartScore}</Text> 
               </View> 
               
               <View style={styles.row}>              
@@ -113,6 +131,10 @@ export default class TicTacToe extends React.Component {
                           {/*<Entypo name="controller-jump-to-start" size={"100%"} color="#2B2B52" />*/}
                           <Text style={styles.resetLabel}>Restart</Text>
                   </TouchableOpacity> 
+                  <TouchableOpacity style={styles.resetButton} onPress={()=>this.resetScore()}>
+                          {/*<Entypo name="controller-jump-to-start" size={"100%"} color="#2B2B52" />*/}
+                          <Text style={styles.resetLabel}>Reset Score</Text>
+                  </TouchableOpacity> 
               </View>               
           </View>
       )
@@ -152,7 +174,7 @@ const styles = StyleSheet.create({
   resetButton: {
     margin:"5%",
     flexDirection:"row",
-    width: width * 0.5,
+    width: width * 0.4,
     height: width * 0.2,
     borderRadius:10,
     backgroundColor:"bisque",
